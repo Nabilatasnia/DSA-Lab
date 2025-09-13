@@ -2,7 +2,7 @@
 #include <stdlib.h>
 int main()
 {
-    int* ptr;
+    int* ptr; 
     int size, item;
     printf("How many elements do you want to enter? ");
     scanf("%d", &size);
@@ -13,21 +13,31 @@ int main()
         free(ptr);
         return 1;
     }
-    printf("Enter the elements");
+    printf("Enter array elements: \n");
     for(int i=0;i<size;i++)
     {
         scanf("%d", &ptr[i]);
     }
     printf("Which element are you searching for? ");
     scanf("%d", &item);
-    for(int i=0;i<size;i++)
+    int left=0, right=size-1, mid;
+    while(left<=right)
     {
-        if(ptr[i]==item)
+        mid=(left+right)/2;
+        if(ptr[mid]==item)
         {
-            printf("Found at position %d\n", i);
+            printf("Found\n");
             return 1;
+        }
+        else if(item<=ptr[mid])
+        {
+            right=mid-1;
+        }
+        else
+        {
+            left=mid+1;
         }
     }
     printf("Item not found\n");
-
+    free(ptr);
 }

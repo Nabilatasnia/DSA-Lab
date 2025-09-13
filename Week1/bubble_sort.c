@@ -3,7 +3,7 @@
 int main()
 {
     int* ptr;
-    int size, item;
+    int size;
     printf("How many elements do you want to enter? ");
     scanf("%d", &size);
     ptr=malloc(size*sizeof(int));
@@ -13,21 +13,26 @@ int main()
         free(ptr);
         return 1;
     }
-    printf("Enter the elements");
+    printf("Enter array elements: \n");
     for(int i=0;i<size;i++)
     {
         scanf("%d", &ptr[i]);
     }
-    printf("Which element are you searching for? ");
-    scanf("%d", &item);
-    for(int i=0;i<size;i++)
+    for(int i=0;i<size-1;i++)
     {
-        if(ptr[i]==item)
+        for(int j=0;j<size-1-i;j++)
         {
-            printf("Found at position %d\n", i);
-            return 1;
+            if(ptr[j]>ptr[j+1])
+            {
+                int temp=ptr[j];
+                ptr[j]=ptr[j+1];
+                ptr[j+1]=temp;
+            }
         }
     }
-    printf("Item not found\n");
+    for(int i=0;i<size;i++)
+    {
+        printf("%d ", ptr[i]);
+    }
 
 }

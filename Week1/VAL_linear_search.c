@@ -2,27 +2,20 @@
 #include <stdlib.h>
 int main()
 {
-    int* ptr;
     int size, item;
     printf("How many elements do you want to enter? ");
     scanf("%d", &size);
-    ptr=malloc(size*sizeof(int));
-    if(ptr==NULL)
-    {
-        printf("Memory allocation failed\n");
-        free(ptr);
-        return 1;
-    }
-    printf("Enter the elements");
+    int arr[size];
+    printf("Enter the elements: \n");
     for(int i=0;i<size;i++)
     {
-        scanf("%d", &ptr[i]);
+        scanf("%d", &arr[i]);
     }
     printf("Which element are you searching for? ");
     scanf("%d", &item);
     for(int i=0;i<size;i++)
     {
-        if(ptr[i]==item)
+        if(arr[i]==item)
         {
             printf("Found at position %d\n", i);
             return 1;
