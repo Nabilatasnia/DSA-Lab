@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h> 
+#define MIN INT_MIN
 int main()
 {
     int* ptr;
-    int size, sum=0;
+    int size, max=MIN;
     scanf("%d", &size);
     ptr=malloc(size*sizeof(int));
     if(ptr==NULL)
@@ -14,9 +16,12 @@ int main()
     }
     for(int i=0;i<size;i++)
     {
-        scanf("%d", (ptr+i));
-        sum+=*(ptr+i);
+        scanf("%d", &ptr[i]);
+        if(ptr[i]>max)
+        {
+            max=ptr[i];
+        }
     }
-    printf("The sum is %d\n", sum);
+    printf("%d\n",max);
     free(ptr);
 }

@@ -11,6 +11,8 @@ int main()
     if(ptr==NULL)
     {
         printf("Memory allocation failed\n");
+        free(ptr);
+        return 1;
     }
     for(int i=0;i<size;i++)
     {
