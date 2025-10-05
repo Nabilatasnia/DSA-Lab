@@ -24,8 +24,9 @@ int main()
     {
         ptr[i]=ptr[i+1];
     }
+    size--;
     printf("Array after deletion\n");
-    for(int i=0;i<size-1;i++)
+    for(int i=0;i<size;i++)
     {
         printf("%d", ptr[i]);
     }

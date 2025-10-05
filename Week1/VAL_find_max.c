@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h> 
-
+#define MIN INT_MIN
 int main()
 {
     int size, max=MIN;
